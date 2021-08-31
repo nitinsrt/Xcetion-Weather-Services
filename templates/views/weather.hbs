@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{>extlinks}}
+</head>
+<body>
+
+    {{>navbar}}
+    <div class="col-md-12 container-fluid main_header">
+        <div class="search_bar">
+        <input type="text" id="cityName" placeholder="Enter your city name" autocomplete="off" >
+        <input type="submit" id="submitButton" value="search">
+        </div>
+        <div class="output_card">
+            <div class="top_elements">
+                <p id='day'>Tuesday</p>
+                <p id='date'>13 Oct</p>
+            </div>
+            <div class="bottom_elements">
+                <p id="output">Get Output Here</p>
+                <div class="tempNicon">
+                <p id="temp"><span id="asli_temp">0</span><sup>o</sup>C</p>
+                <p id="cloud"><i class="fa fa-cloud" aria-hidden="true" ></i></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{>footer}}
+    <script src="js/main.js" ></script>
+    <script>
+        const getCurrentDay = ()=>{
+
+        let weekday= new Array(7);
+        weekday[0]="Sunday";
+        weekday[1]="Monday";
+        weekday[2]="Tuesday";
+        weekday[3]="Wednesday";
+        weekday[4]="Thursday";
+        weekday[5]="Friday";
+        weekday[6]="Saturday";
+        const currentTime= new Date();
+        let days= document.getElementById("day");
+        let day=weekday[currentTime.getDay()];
+        days.innerText=day;
+        };
+        getCurrentDay();
+
+        const getCurrentDate=()=>{
+            let dates=document.getElementById("date");
+            let today = new Date().toISOString().slice(0, 10);
+            dates.innerText=today;
+        }
+        getCurrentDate();
+    </script>
+</body>
+</html>
